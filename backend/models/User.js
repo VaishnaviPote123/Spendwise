@@ -1,11 +1,10 @@
-// models/User.js
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
+const schema = new mongoose.Schema({
   name: String,
-  email: { type: String, unique: true },
+  email: String,
   password: String,
-  role: { type: String, default: "viewer" } // admin / viewer
+  role: { type: String, default: "user" }
 });
 
-export default mongoose.model("User", userSchema);
+export default mongoose.model("User", schema);

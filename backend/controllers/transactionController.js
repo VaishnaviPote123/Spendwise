@@ -1,23 +1,28 @@
 import Transaction from "../models/Transaction.js";
 
-// GET USER TRANSACTIONS
 export const getTransactions = async (req, res) => {
   const data = await Transaction.find({ userId: req.user.id });
   res.json(data);
 };
 
-// ADD TRANSACTION
 export const addTransaction = async (req, res) => {
-  const newTransaction = await Transaction.create({
+  const transaction = await Transaction.create({
     ...req.body,
     userId: req.user.id
   });
-
-  res.json(newTransaction);
+  res.json(transaction);
 };
 
-// DELETE
+export const updateTransaction = async (req, res) => {
+  const updated = await Transaction.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true }
+  );
+  res.json(updated);
+};
+
 export const deleteTransaction = async (req, res) => {
   await Transaction.findByIdAndDelete(req.params.id);
-  res.json({ message: "Deleted" });
+  res.json({ message: "Deleted successfully" });
 };
