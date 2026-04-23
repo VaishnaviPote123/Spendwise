@@ -1,0 +1,19 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+}
+html {
+  scroll-behavior: smooth;
+}
